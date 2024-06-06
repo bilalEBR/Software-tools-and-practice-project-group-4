@@ -1,30 +1,34 @@
 package tools;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WordCounterTest {
 
     /**
-     * This test method uses parameterized tests to validate the word count functionality
+     * This test method validates the word count functionality
      * of the WordCounter class.
-     * @param paragraph The input paragraph as a string.
-     * @param expectedCount The expected number of words in the paragraph.
      */
-    @SuppressWarnings("static-access")
-    @ParameterizedTest
-    @CsvSource({
-            "This is a simple paragraph, 5",
-            "This is another paragraph with more words, 7",
-            // Test case for an empty paragraph
-            "  , 0"
-    })
     @Test
-    public void testWordCountInParagraph(String paragraph, int expectedCount) {
-        WordCounter wordCounter = new WordCounter();
-        // Assert that the countWordsInParagraph method returns the expected word count
-        assertEquals(expectedCount, wordCounter.countWordsInParagraph(paragraph));
+    public void testCountWordsInParagraph() {
+        // Test with a simple paragraph
+        String paragraph1 = "This is a simple paragraph.";
+        int expectedCount1 = 5;
+        assertEquals(expectedCount1, WordCounter.countWordsInParagraph(paragraph1));
+
+        // Test with another paragraph with more words
+        String paragraph2 = "This is another paragraph with more words.";
+        int expectedCount2 = 7;
+        assertEquals(expectedCount2, WordCounter.countWordsInParagraph(paragraph2));
+
+        // Test with an empty paragraph
+        String paragraph3 = "  ";
+        int expectedCount3 = 0;
+        assertEquals(expectedCount3, WordCounter.countWordsInParagraph(paragraph3));
+
+        // Test with a null paragraph
+        String paragraph4 = null;
+        int expectedCount4 = 0;
+        assertEquals(expectedCount4, WordCounter.countWordsInParagraph(paragraph4));
     }
 }
