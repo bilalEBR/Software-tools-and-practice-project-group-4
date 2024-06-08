@@ -7,7 +7,7 @@ public class WordCounterTest {
 
     /**
      * This test method validates the word count functionality
-     * of the WordCounter class.
+     *of the WordCounter class.
      */
     @Test
     public void testCountWordsInParagraph() {
