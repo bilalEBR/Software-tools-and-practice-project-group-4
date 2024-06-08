@@ -80,11 +80,11 @@ For each program, both the implementation code and its corresponding JUnit test 
 
 - Sample Code:
   ```java
-  public class PharmacyDrugRecordApp {
-     public static void createDrugRecord(String drugName) {
+  public class PharmacyManagementSystem {
+     public static void AddDrugRecord(String drugName) {
        
         drugRecords.add(drugName);
-        System.out.println("Drug record created successfully: " + drugName);
+        System.out.println("Drug record added successfully: " + drugName);
     }
 
   }
@@ -116,12 +116,12 @@ For each program, both the implementation code and its corresponding JUnit test 
 
 |NO | Name            |ID Number|User Name|  
 |:--| :---------------|---------|---------|
-|1. |Hailemichae Abayneh  |146297  |[@MichaelAbayneh](https://github.com/michaelabayneh)
-|2. |Bilal   Ebrahim |  145647 |[bilalEBR](https://github.com/michaelabayneh)
-|3. |Tiena  Abebaw | |[147400]()
-|4. |Sulyman  Abdu   |  |[147312]()
-|5. |Yabsera  Asefaw  |  |[]()
-|6. |Elias    Nibret  |  |[]()
+|1. |Hailemichael Abayneh  | WDU 146297  |[@MichaelAbayneh](https://github.com/michaelabayneh)
+|2. |Bilal   Ebrahim | WDU  145647 |[bilalEBR](https://github.com/michaelabayneh)
+|3. |Tiena  Abebaw |WDU 147400 |[]()
+|4. |Sulyman  Abdu   |WDU 147312  |[]()
+|5. |Yabsera  Asefaw  |WDU 147548  |[]()
+|6. |Elias    Nibret  |WDU 145962  |[]()
 
 <br><br><br><br>
 
