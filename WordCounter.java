@@ -8,6 +8,7 @@ public class WordCounter {
      * This method counts the number of words in a given paragraph.
      * @param paragraph The input paragraph as a string.
      * @return The number of words in the paragraph.
+     *
      */
     public static int countWordsInParagraph(String paragraph) {
         // Check if the paragraph is null or empty
