@@ -118,10 +118,10 @@ For each program, both the implementation code and its corresponding JUnit test 
 |:--| :---------------|---------|---------|
 |1. |Hailemichael Abayneh  | WDU 146297  |[@MichaelAbayneh](https://github.com/michaelabayneh)
 |2. |Bilal   Ebrahim | WDU  145647 |[@bilalEBR](https://github.com/bilalEBR)
-|3. |Tiena  Abebaw |WDU 147400 |[tenaababaw](https://github.com/)
+|3. |Tiena  Abebaw |WDU 147400 |[@tenaababaw](https://github.com/)
 |4. |Sulyman  Abdu   |WDU 147312  |[@suleyman0931](https://github.com/suleyman0931)
-|5. |Yabsera  Asefaw  |WDU 147548  |[yab-asfaw](https://github.com/yab-asfaw)
-|6. |Elias    Nibret  |WDU 145962  |[eliasgebru](https://github.com/eliasgebru)
+|5. |Yabsera  Asefaw  |WDU 147548  |[@yab-asfaw](https://github.com/yab-asfaw)
+|6. |Elias    Nibret  |WDU 145962  |[@eliasgebru](https://github.com/eliasgebru)
 
 <br><br><br><br>
 
