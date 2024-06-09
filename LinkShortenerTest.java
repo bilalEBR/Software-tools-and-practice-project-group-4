@@ -1,6 +1,3 @@
-
-
-
 package tools;
 
 import org.junit.jupiter.api.Test;
@@ -11,11 +8,11 @@ public class LinkShortenerTest {
     @Test
     public void testShortenAndExpandUrl() {
         LinkShortener linkShortener = new LinkShortener();
-        String longUrl = "https://www.example.com";
+        String originalLongUrl = "https://www.example.com";
 
-        String shortUrl = linkShortener.shortenUrl(longUrl);
-        String expandedUrl = linkShortener.expandUrl(shortUrl);
+        String generatedShortUrl = linkShortener.shortenUrl(originalLongUrl);
+        String retrievedLongUrl = linkShortener.expandUrl(generatedShortUrl);
 
-        assertEquals(longUrl, expandedUrl);
+        assertEquals(originalLongUrl, retrievedLongUrl);
     }
 }
