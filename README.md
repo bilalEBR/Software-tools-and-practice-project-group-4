@@ -6,24 +6,96 @@
 
 This README provides an introduction to several Java programs along with their associated JUnit tests. Each program serves a specific purpose and is accompanied by sample code demonstrating its functionality. The programs covered in this README are:
 
-1. **Transpose of Matrix**
-2. **Word Counter**
-3. **Link Shortener**
+1. **Link Shortener**
+2. **Transpose of Matrix**
+3. **Pharmacy Managment System**
 4. **Prime Factorization Calculator**
-5. **Pharmacy Drug Record CRUD Console Application**
+5. **Word Counter**
+
 
 For each program, both the implementation code and its corresponding JUnit test code are provided to showcase how the functionalities work and how they can be tested.
 
 ---
+#### 1. Link Shortener
+- **Description:**
+  The "Link Shortener" program shortens long URLs into shorter, more manageable links. It generates unique short links for provided URLs using an algorithm or mapping mechanism and allows users to use the shortened link to redirect to the original URL.
 
-#### 1. Transpose of Matrix
+
+- Junit Test Sample Code:
+  ```java
+          
+        public class LinkShortenerTest {
+
+            @Test
+            public void testShortenAndExpandUrl() {
+                LinkShortener linkShortener = new LinkShortener();
+                String originalLongUrl = "https://www.example.com";
+
+                String generatedShortUrl = linkShortener.shortenUrl(originalLongUrl);
+                String retrievedLongUrl = linkShortener.expandUrl(generatedShortUrl);
+
+                assertEquals(originalLongUrl, retrievedLongUrl);
+            }
+        }
+  ```
+
+  #### 3. Pharmacy Drug Record CRUD Console Application
+- Description:
+  The "Pharmacy Drug Record CRUD Console Application" is a Java console-based application that manages drug records in a pharmacy. It supports Create, Read, Update, and Delete (CRUD) operations for drug records, with each operation encapsulated in a separate method for structured data management.
+
+- Sample Code:
+  ```java
+  // Method to update an existing drug record
+    protected static void updateDrugRecord(String oldDrugName, String newDrugName) {
+        int index = drugRecords.indexOf(oldDrugName);
+        if (index >= 0 && index < drugRecords.size()) {
+            drugRecords.set(index, newDrugName);
+            System.out.println("Drug record updated successfully.");
+        } else {
+            System.out.println("Drug record not found. Update failed.");
+        }
+    }
+  ```
+
+- JUnit Test Sample Code:
+  ```java
+  public class PharmacyManagementSystemTest {
+
+    @Test
+    void testAddDrugRecord() {
+        PharmacyManagementSystem.drugRecords.clear(); 
+        PharmacyManagementSystem.addDrugRecord("Paracetamol");
+        assertEquals(1, PharmacyManagementSystem.drugRecords.size());
+        assertTrue(PharmacyManagementSystem.drugRecords.contains("Paracetamol"));
+    }
+    }
+  ```
+
+
+
+#### 2. Transpose of Matrix
 - **Description:**
   The "Transpose of Matrix" program in Java calculates the transpose of a given matrix. It swaps the rows and columns of the matrix to produce a new matrix where the rows of the original matrix become the columns of the new matrix.
 
-
-- Juit Test Sample Code:
+  - Sample Code:
   ```java
-  
+
+
+    public static int[][] transposeMatrix(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] transposedMatrix = new int[cols][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                transposedMatrix[j][i] = matrix[i][j];
+            }
+        }
+        return transposedMatrix;
+    }
+
+- Junit Test Sample Code:
+  ```java
   public class MatrixTransposeTest {
 
     @Test
@@ -33,56 +105,18 @@ For each program, both the implementation code and its corresponding JUnit test 
         int[][] actualTransposedMatrix = MatrixTranspose.transposeMatrix(matrix);
         assertArrayEquals(expectedTransposedMatrix, actualTransposedMatrix);
     }
-  }
-  ```
-
-  
-#### 2. Word Counter from Input of Paragraph
-- **Description:**
-  The "Word Counter" program counts the occurrences of each word in a paragraph input by the user. It processes the input paragraph, extracts individual words, and counts their frequencies. The output displays the word count of each unique word in the paragraph.
-  - Sample Code:
-  ```java
-  public class WordCounter {
-	public static int countWords(String paragraph ){
-        if (paragraph == null || paragraph.trim().isEmpty()) {
-            return 0;
-        }
-
-        String[] words = paragraph.split("\\s+");
-        return words.length;
     }
-	
-	public static void main(String []args) {
-		
-		Scanner sc=new Scanner(System.in);
-		System.out.println("Write the paragraph here");
-		String paragraph=sc.nextLine();
-		System.out.println(countWords(paragraph));
-		
-	}
-  }
-
   ```
 
-#### 3. Link Shortener
-- **Description:**
-  The "Link Shortener" program shortens long URLs into shorter, more manageable links. It generates unique short links for provided URLs using an algorithm or mapping mechanism and allows users to use the shortened link to redirect to the original URL.
-
-
-
-#### 4. Prime Factorization Calculator
-- **Description:**
-  The "Prime Factorization Calculator" program calculates the prime factors of a given number. It decomposes the input number into its prime factors, listing each prime factor with its corresponding power. The output provides a comprehensive factorization of the input number. 
-  
-#### 5. Pharmacy Drug Record CRUD Console Application
+  #### 3. Pharmacy Drug Record CRUD Console Application
 - Description:
   The "Pharmacy Drug Record CRUD Console Application" is a Java console-based application that manages drug records in a pharmacy. It supports Create, Read, Update, and Delete (CRUD) operations for drug records, with each operation encapsulated in a separate method for structured data management.
 
 - Sample Code:
   ```java
   public class PharmacyManagementSystem {
-     public static void AddDrugRecord(String drugName) {
-       
+      // Method to add a new drug record
+    public static void addDrugRecord(String drugName) {
         drugRecords.add(drugName);
         System.out.println("Drug record added successfully: " + drugName);
     }
@@ -92,24 +126,69 @@ For each program, both the implementation code and its corresponding JUnit test 
 
 - JUnit Test Sample Code:
   ```java
-  public class PharmacyAppParametrizedTest {
+  public class PharmacyManagementSystemTest {
 
-    @SuppressWarnings("static-access")
-	@ParameterizedTest
-    @CsvSource({
-            "Paracetamol",
-            "Ibuprofen",
-            "Aspirin"
-    })
-    void testCreateDrugRecord(String drugName) {
-        PharmacyApp pharmacyApp = new PharmacyApp();
-        PharmacyApp.createDrugRecord(drugName);
-        
-        assertTrue(pharmacyApp.drugRecords.contains(drugName));
-    }
-    }
+      @Test
+      void testAddDrugRecord() {
+          PharmacyManagementSystem.drugRecords.clear(); 
+          PharmacyManagementSystem.addDrugRecord("Paracetamol");
+          assertEquals(1, PharmacyManagementSystem.drugRecords.size());
+          assertTrue(PharmacyManagementSystem.drugRecords.contains("Paracetamol"));
+      }
+  }
   ```
-   <br><br><br><br>
+  
+
+
+
+
+
+#### 4. Prime Factorization Calculator
+- **Description:**
+  The "Prime Factorization Calculator" program calculates the prime factors of a given number. It decomposes the input number into its prime factors, listing each prime factor with its corresponding power. The output provides a comprehensive factorization of the input number. 
+  - JUnit Test Sample Code:
+  ```java
+
+  public class PrimeFactorizationTest {
+
+    @Test
+
+    public void testPrimeFactors() {
+    	
+        assertEquals(listOf(2, 2, 5, 5), PrimeFactorization.primeFactors(100));
+        assertEquals(listOf(2, 2, 2, 5,5,5), PrimeFactorization.primeFactors(1000));
+    }
+    }
+ ```
+
+#### 5. Word Counter from Input of Paragraph
+ - **Description:**
+      The "Word Counter" program counts the occurrences of each word in a paragraph input by the user. It processes the input paragraph, extracts individual words, and counts their frequencies. The output displays the word count of each unique word in the paragraph.
+      - Sample Code:
+      
+      ```java
+
+        public class WordCounter {
+
+        /**
+        * This method counts the number of words in a given paragraph.
+        * @param paragraph The input paragraph as a string.
+        * @return The number of words in the paragraph.
+        *
+        */
+        public static int countWordsInParagraph(String paragraph) {
+            // Check if the paragraph is null or empty
+            if (paragraph == null || paragraph.trim().isEmpty()) {
+                return 0;
+            }
+
+            // Split the paragraph into words using whitespace as delimiter
+            String[] words = paragraph.split("\\s+");
+            return words.length;
+        }
+      }
+
+  ```
   # Contrbuters 
 
 
@@ -123,13 +202,9 @@ For each program, both the implementation code and its corresponding JUnit test 
 |5. |Yabsera  Asefaw  |WDU 147548  |[@yab-asfaw](https://github.com/yab-asfaw)
 |6. |Elias    Nibret  |WDU 145962  |[@eliasgebru](https://github.com/eliasgebru)
 
-<br><br><br><br>
 
-If you have any inquiries, encounter issues, or require assistance with the Java project, please feel free to reach out through the following channels:
 
-- For general support and queries, you can contact us via email at [abenimom1994@gmail.com](abenimom1994@gmail.com)<br>[etumesi@gmail.com]([etumesi@gmail.com).
-- To report any bugs, suggest enhancements, or submit feedback, please open an issue on our GitHub repository: [Project Repository Issues](https://github.com/abenezerTariku/software-tools-and-practice-project-group-4/issues).
-- Connect with the project community and seek help by joining our discussion forums or chat platforms linked in the project documentation.
+
 
 
 
