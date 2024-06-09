@@ -15,7 +15,6 @@ public class PrimeFactorization {
         for (int i = 2; i <= n / i; i++) {
         	
             while (n % i == 0) {
-            	
                 factors.add(i);
                 n /= i;
             }
@@ -36,7 +35,7 @@ public class PrimeFactorization {
         
         scanner.close();
 
-        System.out.println("Prime factors of " + number + ":");
+        System.out.println("Prime factors of " + number + "are:");
         
         for (Integer factor : primeFactors(number)) {
         	
@@ -44,14 +43,3 @@ public class PrimeFactorization {
         }
     }
     }
-
-
-
-
-
-
-
-
-
-
-
