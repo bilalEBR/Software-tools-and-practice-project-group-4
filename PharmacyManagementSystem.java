@@ -18,7 +18,7 @@ class PharmacyManagementSystem {
             System.out.println("5. Exit");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline character
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -52,13 +52,11 @@ class PharmacyManagementSystem {
         System.out.println("Exiting Pharmacy Management System. Goodbye!");
     }
 
-    // Method to add a new drug record
     public static void addDrugRecord(String drugName) {
         drugRecords.add(drugName);
         System.out.println("Drug record added successfully: " + drugName);
     }
 
-    // Method to display all drug records
     protected static void displayDrugRecords() {
         if (drugRecords.isEmpty()) {
             System.out.println("No drug records found.");
@@ -70,7 +68,6 @@ class PharmacyManagementSystem {
         }
     }
 
-    // Method to update an existing drug record
     protected static void updateDrugRecord(String oldDrugName, String newDrugName) {
         int index = drugRecords.indexOf(oldDrugName);
         if (index >= 0 && index < drugRecords.size()) {
@@ -81,7 +78,7 @@ class PharmacyManagementSystem {
         }
     }
 
-    // Method to remove a drug record
+    
     protected static void removeDrugRecord(String drugName) {
         int index = drugRecords.indexOf(drugName);
 
