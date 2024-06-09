@@ -182,7 +182,7 @@ public class WordCounter {
      * @return The number of words in the paragraph.
      */
     public static int countWordsInParagraph(String paragraph) {
-        // Check if the paragraph is null or empty
+    
         if (paragraph == null || paragraph.trim().isEmpty()) {
             return 0;
         }
