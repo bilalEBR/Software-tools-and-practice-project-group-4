@@ -159,36 +159,42 @@ For each program, both the implementation code and its corresponding JUnit test 
         assertEquals(listOf(2, 2, 2, 5,5,5), PrimeFactorization.primeFactors(1000));
     }
     }
- ```
 
-#### 5. Word Counter from Input of Paragraph
- - **Description:**
-      The "Word Counter" program counts the occurrences of each word in a paragraph input by the user. It processes the input paragraph, extracts individual words, and counts their frequencies. The output displays the word count of each unique word in the paragraph.
-      - Sample Code:
-      
-      ```java
 
-        public class WordCounter {
-
-        /**
-        * This method counts the number of words in a given paragraph.
-        * @param paragraph The input paragraph as a string.
-        * @return The number of words in the paragraph.
-        *
-        */
-        public static int countWordsInParagraph(String paragraph) {
-            // Check if the paragraph is null or empty
-            if (paragraph == null || paragraph.trim().isEmpty()) {
-                return 0;
-            }
-
-            // Split the paragraph into words using whitespace as delimiter
-            String[] words = paragraph.split("\\s+");
-            return words.length;
-        }
-      }
 
   ```
+
+
+
+#### 5. Word Counter from Input of Paragraph
+
+ - **Description:**
+
+The "Word Counter" program counts the occurrences of each word in a paragraph input by the user. It processes the input paragraph, extracts individual words, and counts their frequencies. The output displays the word count of each unique word in the paragraph.
+
+-Sample Code
+```java
+public class WordCounter {
+
+    /**
+     * This method counts the number of words in a given paragraph.
+     * @param paragraph The input paragraph as a string.
+     * @return The number of words in the paragraph.
+     */
+    public static int countWordsInParagraph(String paragraph) {
+        // Check if the paragraph is null or empty
+        if (paragraph == null || paragraph.trim().isEmpty()) {
+            return 0;
+        }
+
+        // Split the paragraph into words using whitespace as delimiter
+        String[] words = paragraph.split("\\s+");
+        return words.length;
+    }
+}
+
+  
+
   # Contrbuters 
 
 
