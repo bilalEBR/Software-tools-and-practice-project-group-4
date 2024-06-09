@@ -1,0 +1,44 @@
+package tools;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LinkShortener {
+
+    private Map<String, String> shortUrlToLongUrlMap;
+    private Map<String, String> longUrlToShortUrlMap;
+    private static final String BASE_URL = "https://short.url/";
+
+    public LinkShortener() {
+        this.shortUrlToLongUrlMap = new HashMap<>();
+        this.longUrlToShortUrlMap = new HashMap<>();
+    }
+
+    public String shortenUrl(String longUrl) {
+        if (longUrlToShortUrlMap.containsKey(longUrl)) {
+            return longUrlToShortUrlMap.get(longUrl);
+        }
+
+        String shortUrl = generateShortUrl();
+        shortUrlToLongUrlMap.put(shortUrl, longUrl);
+        longUrlToShortUrlMap.put(longUrl, shortUrl);
+        return shortUrl;
+    }
+
+    public String expandUrl(String shortUrl) {
+        return shortUrlToLongUrlMap.getOrDefault(shortUrl, "Short URL does not exist");
+    }
+
+    private String generateShortUrl() {
+        // Generate a short URL based on some logic
+        return BASE_URL + (int)(Math.random() * 1000);
+    }
+
+    public static void main(String[] args) {
+        LinkShortener linkShortener = new LinkShortener();
+
+        String longUrl = "https://www.google.com/search?q=link+shortener+java+program&oq=link+shortener+java+program&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRiPAtIBCTIwMTY2ajBqN6gCCLACAQ&sourceid=chrome&ie=UTF-8#fpstate=ive&vld=cid:57066797,vid:r13QVsIhlNU,st:0";
+        String shortUrl = linkShortener.shortenUrl(longUrl);
+        System.out.println("Shortened URL: " + shortUrl);
+    }
+}
